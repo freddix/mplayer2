@@ -37,6 +37,7 @@ BuildRequires:	libtheora-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	libx264-devel
 BuildRequires:	libxslt-progs
+BuildRequires:	mpg123-libs-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	opencore-amr-devel
 BuildRequires:	pkg-config
