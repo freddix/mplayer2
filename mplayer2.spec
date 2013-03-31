@@ -1,14 +1,14 @@
-%define		gitrev	95e81df132e3dbc555974d125e56ae701a0f6968
+%define		gitrev	9d6b188fca185968af5c62438b44dcbd2eefc47a
 
 Summary:	Movie player
 Name:		mplayer2
 Version:	2.0
-Release:	0.1
+Release:	0.%{gitrev}.1
 License:	GPL
 Group:		Applications/Multimedia
 #Source0:	http://ftp.mplayer2.org/pub/archive/release/source/%{name}-%{version}.tar.xz
 Source0:	http://git.mplayer2.org/mplayer2/snapshot/%{name}-%{gitrev}.tar.bz2
-# Source0-md5:	0c1bacbcc1d7457c9d6469a168a3b0d7
+# Source0-md5:	160b1b10f92a773fda02eca5dbfc3d3c
 Source1:	%{name}.desktop
 URL:		http://www.mplayerhq.hu/
 BuildRequires:	OpenGL-devel
@@ -16,7 +16,7 @@ BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	cdparanoia-III-devel
 BuildRequires:	dbus-glib-devel
-BuildRequires:	docbook-style-xsl
+BuildRequires:	docutils
 BuildRequires:	faac-devel
 BuildRequires:	faad2-devel
 BuildRequires:	freetype-devel
@@ -27,6 +27,7 @@ BuildRequires:	lame-libs-devel
 BuildRequires:	libass-devel
 BuildRequires:	libav-devel
 BuildRequires:	libbluray-devel
+BuildRequires:	libcdio-devel
 BuildRequires:	libdca-devel
 BuildRequires:	libdvdnav-devel
 BuildRequires:	libjpeg-devel
@@ -76,35 +77,23 @@ CC="%{__cc}"
 export CC
 
 ./configure \
-	--confdir=%{_sysconfdir}/mplayer	\
 	--codecsdir=%{_libdir}/codecs		\
-	--disable-aa				\
+	--confdir=%{_sysconfdir}/mplayer	\
 	--disable-caca				\
-	--disable-dga1				\
-	--disable-dga2				\
 	--disable-directfb			\
-	--disable-dxr3				\
 	--disable-enca				\
-	--disable-ggi				\
-	--disable-libcdio			\
 	--disable-libdv				\
 	--disable-lirc				\
-	--disable-live				\
-	--disable-mga				\
 	--disable-musepack			\
 	--disable-openal			\
 	--disable-ossaudio			\
 	--disable-select			\
 	--disable-smb				\
-	--disable-svga				\
-	--disable-tdfxfb			\
-	--disable-xmga				\
 	--enable-runtime-cpudetection		\
 	--extra-cflags="%{rpmcflags}"		\
 	--extra-ldflags="%{rpmldflags}"		\
 	--language=en,de,pl			\
-	--prefix=%{_prefix}			\
-        --disable-nas
+	--prefix=%{_prefix}
 %{__make}
 
 %install
