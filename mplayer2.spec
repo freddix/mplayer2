@@ -1,16 +1,16 @@
-%define		gitrev	9d6b188fca185968af5c62438b44dcbd2eefc47a
+%define		gitrev	6c87a981baa4972fd71c25dfddea017b5a972e89
 
 Summary:	Movie player
 Name:		mplayer2
 Version:	2.0
-Release:	0.%{gitrev}.1
+Release:	1.%{gitrev}.1
 License:	GPL
 Group:		Applications/Multimedia
 #Source0:	http://ftp.mplayer2.org/pub/archive/release/source/%{name}-%{version}.tar.xz
 Source0:	http://git.mplayer2.org/mplayer2/snapshot/%{name}-%{gitrev}.tar.bz2
-# Source0-md5:	160b1b10f92a773fda02eca5dbfc3d3c
+# Source0-md5:	8286148ae8980d4fbe27c6102572d1e4
 Source1:	%{name}.desktop
-URL:		http://www.mplayerhq.hu/
+URL:		http://www.mplayer2.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
