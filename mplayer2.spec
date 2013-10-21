@@ -3,7 +3,7 @@
 Summary:	Movie player
 Name:		mplayer2
 Version:	2.0
-Release:	1.%{gitrev}.1
+Release:	1.%{gitrev}.2
 License:	GPL
 Group:		Applications/Multimedia
 #Source0:	http://ftp.mplayer2.org/pub/archive/release/source/%{name}-%{version}.tar.xz
