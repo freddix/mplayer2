@@ -3,20 +3,20 @@
 Summary:	Movie player
 Name:		mplayer2
 Version:	2.0
-Release:	1.%{gitrev}.2
+Release:	1.%{gitrev}.3
 License:	GPL
 Group:		Applications/Multimedia
 #Source0:	http://ftp.mplayer2.org/pub/archive/release/source/%{name}-%{version}.tar.xz
 Source0:	http://git.mplayer2.org/mplayer2/snapshot/%{name}-%{gitrev}.tar.bz2
 # Source0-md5:	8286148ae8980d4fbe27c6102572d1e4
 Source1:	%{name}.desktop
+Patch0:		%{name}-giflib.patch
 URL:		http://www.mplayer2.org/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	cdparanoia-III-devel
 BuildRequires:	dbus-glib-devel
-BuildRequires:	docutils
 BuildRequires:	faac-devel
 BuildRequires:	faad2-devel
 BuildRequires:	freetype-devel
@@ -43,6 +43,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	opencore-amr-devel
 BuildRequires:	pkg-config
 BuildRequires:	pulseaudio-devel
+BuildRequires:	python-docutils
 BuildRequires:	python3-modules
 BuildRequires:	speex-devel
 BuildRequires:	xorg-libX11-devel
@@ -67,6 +68,7 @@ MPlayer is a movie player.
 
 %prep
 %setup -qn %{name}-%{gitrev}
+%patch0 -p1
 
 echo %{version} > VERSION
 
